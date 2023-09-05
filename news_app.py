@@ -14,7 +14,9 @@ def home():
 def sign_up():
     return render_template("signup.html")
 
-
+@app.route("/category")
+def category():
+    return render_template("category.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
