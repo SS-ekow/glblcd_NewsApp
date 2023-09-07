@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
-from newsapi import NewsApiClient
+from flask import Flask, render_template
+from newsapi.newsapi_client import NewsApiClient
 
 newsapi = NewsApiClient(api_key='9a7b975fbe1a468a93b12f0d6b9fce57')
-
 
 app = Flask(__name__)
 
@@ -22,11 +21,8 @@ def category(cat):
         top_headlines = newsapi.get_top_headlines(category=cat, language='en', country='us')
         return render_template("category.html", top_headlines=top_headlines)
     
-    
-    
-    
-    
     return render_template("category.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
+    
