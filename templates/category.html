@@ -9,7 +9,8 @@
       <div class="card-body">
         <h4 class="card-title"><a href="{{article['url']}}" class="link-dark text-decoration-underline">{{article['title']}}</a></h4>
         <h5 class="card-text">{{article['description']}}</h5>
-        <p class="card-text"><small class="text-muted">{{article['content']|striptags|truncate(100)}}</small><a href="{{article['url']}}" class="text-muted">Read More</a></p>
+        <p class="card-text"><small class="text-muted">{{article['content']}}</small></p>
+        <a href="{{article['url']}}" class="text-muted">Read More</a>
         <small>Author: {{article['author']}}</br> Date: {{article['publishedAt']}}</small>
       </div>
     </div>
