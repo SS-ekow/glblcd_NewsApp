@@ -1,22 +1,28 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template
 from newsapi import NewsApiClient
 from forms import RegistrationForm
 
-newsapi = NewsApiClient(api_key='9a7b975fbe1a468a93b12f0d6b9fce57')
+
+newsapi = NewsApiClient(api_key='dafcceb89a5f4a39a8772cae8649c766')
 
 
 
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '55af5c09aad400be122a'
+
 
 @app.route("/")
 def home():
    
-    response = newsapi.get_top_headlines(language='en', country='us')   
+    response = newsapi.get_top_headlines(language='en', country='us')  
+    
+    all_articles = newsapi.get_everything(sources='bbc-news,the-verge', domains='bbc.co.uk,techcrunch.com', from_param='2023-08-10', to='2023-09-06', language='en', sort_by='relevancy', page=2)
+    
+    
+ 
      
-    return render_template("home.html",response=response)
+    return render_template("home.html",  response=response, all_articles=all_articles)
 
     
 
@@ -44,14 +50,15 @@ def category(cat):
         top_headlines = newsapi.get_top_headlines(category=cat, language='en', country='us', page=2)
         return render_template("category.html", top_headlines=top_headlines, response=response)
     
-    else:
-        flash("Category does not exist. (for this api.)")
-    
+      
     
     
     return render_template("category.html")
 
-
+# @app.route("/search")
+# def search():
+    
+#     return render_template("home.html")
 
 
 if __name__ == "__main__":
