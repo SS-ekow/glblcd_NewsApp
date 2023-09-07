@@ -2,9 +2,7 @@ from flask import Flask, render_template
 from newsapi import NewsApiClient
 from forms import RegistrationForm
 
-
-newsapi = NewsApiClient(api_key='dafcceb89a5f4a39a8772cae8649c766')
-
+newsapi = NewsApiClient(api_key='9a7b975fbe1a468a93b12f0d6b9fce57')
 
 
 
@@ -63,3 +61,4 @@ def category(cat):
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
+    
