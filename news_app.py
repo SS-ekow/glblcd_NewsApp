@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+import requests
 from newsapi import NewsApiClient
-# from forms import RegistrationForm
+
 import secret_keys
 
 newsapi = NewsApiClient(api_key= secret_keys.apiKey)
@@ -35,9 +36,9 @@ def home():
 
 @app.route("/signup")
 def register():
-    form = RegistrationForm()
     
-    return render_template('signup.html', title='Register', form=form)
+    
+    return render_template('signup.html', title='Register')
 
 
 
@@ -56,10 +57,25 @@ def category(cat):
     
     return render_template("category.html")
 
-# @app.route("/search")
-# def search():
+@app.route("/search", methods=['GET', 'POST'])
+def search():
     
-#     return render_template("home.html")
+    # keyword = request.form.get('keyword')
+    
+    url = ('https://newsapi.org/v2/everything?'
+       'q=bitcoin&'
+       'sources=bbc-news&'
+        'domains=bbc.co.uk&'
+       'from_param=2023-09-08&'
+       'to=2023-09-0&'
+       'sortBy=popularity&'
+       'apiKey=9a7b975fbe1a468a93b12f0d6b9fce57')
+
+    response = requests.get(url)
+
+  
+    
+    return render_template("search.html", response=response)
 
 
 if __name__ == "__main__":

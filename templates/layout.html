@@ -82,7 +82,7 @@
               </li>
               
             </ul>
-            <form class="d-flex" action="">
+            <form class="d-flex" action="/search" method= "POST">
               <input class="form-control me-2" id='keyword' type="text" placeholder="Search" aria-label="Search">
               
               <button class="btn btn-outline-success" type="submit">Search</button>
@@ -204,7 +204,7 @@
         <div class="col-lg-6 col-md-8 col-sm-12 scrollable-content">
           <div >
             <!-- Middle content goes here (scrollable feed) -->
-            {% block content %}{% endblock %}
+            {% block content %}{% endblock content %}
           </div>
         </div>
         <!-- Scrollable Right Column -->
