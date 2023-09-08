@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = secret_keys.secret_key
 @app.route("/")
 def home():
    
-    response = newsapi.get_top_headlines(language='en', country='us')  
+    response = newsapi.get_top_headlines(language='en', country='us', page = 2)  
     
     all_articles = newsapi.get_everything(sources='bbc-news,the-verge', domains='bbc.co.uk,techcrunch.com', from_param='2023-08-10', to='2023-09-06', language='en', sort_by='relevancy', page=2)
     
