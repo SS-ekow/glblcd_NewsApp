@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from newsapi import NewsApiClient
-from forms import RegistrationForm
+# from forms import RegistrationForm
 import secret_keys
 
 newsapi = NewsApiClient(api_key= secret_keys.apiKey)
