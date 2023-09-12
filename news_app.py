@@ -19,7 +19,7 @@ def home():
    
     response = newsapi.get_top_headlines(language='en', country='us', page = 2)  
     
-    all_articles = newsapi.get_everything(sources='bbc-news,the-verge', domains='bbc.co.uk,techcrunch.com', from_param='2023-08-10', to='2023-09-06', language='en', sort_by='relevancy', page=2)
+    all_articles = newsapi.get_everything(sources='bbc-news,the-verge', domains='bbc.co.uk,techcrunch.com', from_param='2023-09-01', to='2023-09-12', language='en', sort_by='relevancy', page=2)
     
     
  
@@ -66,8 +66,8 @@ def search():
        'q=bitcoin&'
        'sources=bbc-news&'
         'domains=bbc.co.uk&'
-       'from_param=2023-09-08&'
-       'to=2023-09-0&'
+       'from_param=2023-09-01&'
+       'to=2023-09-11&'
        'sortBy=popularity&'
        'apiKey=9a7b975fbe1a468a93b12f0d6b9fce57')
 
