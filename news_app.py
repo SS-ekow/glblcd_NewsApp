@@ -19,7 +19,7 @@ def home():
    
     response = newsapi.get_top_headlines(language='en', country='us', page = 2)  
     
-    all_articles = newsapi.get_everything(sources='bbc-news,the-verge', domains='bbc.co.uk,techcrunch.com', from_param='2023-09-01', to='2023-09-12', language='en', sort_by='relevancy', page=2)
+    all_articles = newsapi.get_everything(sources='bbc-news,the-verge', domains='bbc.co.uk,techcrunch.com', language='en', sort_by='relevancy', page=2)
     
     
  
